@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Mission to Mars</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container text-center">
+  	<div class="jumbotron text-center ml-5 mt-5 mr-5 mb-5">
+      <h1>Mission to Mars</h1>
+        <p>To access the most recent data on Mars, please scrape the data with the button below:</p>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+    </div>
+  </div>
+
+  <div class="container text-center">
+	<div class="row ml-5 mt-5 mr-5 mb-5">
+	  <div class="col-lg-12 mb-6" style="background-color:#e9ecef;">
+	    <div class="thumbnail">
+	      <h1 class="text-primary pt-4">Latest Mars News</h1>
+	      <hr>
+	      <h4>{{mars.news_title}}</h4>
+	      <p>{{mars.news_p}}</p>
+	      <br>
+	    </div>
+	  </div>
+	</div>
+  </div>
+      
+  <div class="container text-center">	
+    <div class="row text-center ml-5 mt-5 mr-5 mb-5">
+      <div class="col-lg-6 mb-6" style="background-color:#e9ecef;">
+        <h1 class="text-primary pt-4">Current Featured Image on Mars</h1>
+        <hr>
+		<a href={{mars.featured_image_url}}>
+          <img class="img-responsive" src={{mars.featured_image_url}} alt="Current Featured Image on Mars" style="width:100%" class="img-fluid"></a>
+      </div>
+      <hr>
+      <br>
+      <div class="col-lg-6 mb-6" style="background-color:#e9ecef;">
+       	<h1 class="text-primary pt-4">Current weather on Mars</h1>
+        <hr>
+    <p>The most recent tweet from the Mars weather official twitter is:</p>
+		<p>{{mars.mars_weather}}</p>
+		<br>
+        <div>
+          <h1 class="text-primary pt-4">Mars Facts</h1>
+          <hr>
+          <table class="table">
+          	{{mars.mars_table | safe}}
+          </table>
+          <br>  
+        </div>
+      </div>        
+    </div>
+  </div>
+
+  <div class="container text-center">
+    <div class="row ml-5 mt-5 mr-5 mb-5">
+      <div class="col-md-12" style="background-color:#e9ecef;">
+    <h1 class="text-primary pt-4 text-center">Mars Hemispheres</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{mars.mars_hemisphere[0]['img_url']}}" alt="Mars Hemisphere1" class="img-fluid">
+        <h3 class="text-primary pt-4">{{mars.mars_hemisphere[0]['title']}}</h3>
+      </div>
+      <div class="col-md-6">
+        <img src="{{mars.mars_hemisphere[1]['img_url']}}" alt="Mars Hemisphere2" class="img-fluid">
+        <h3 class="text-primary pt-4">{{mars.mars_hemisphere[1]['title']}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{mars.mars_hemisphere[0]['img_url']}}" alt="Mars Hemisphere1" class="img-fluid">
+        <h3 class="text-primary pt-4">{{mars.mars_hemisphere[0]['title']}}</h3>
+      </div>
+      <div class="col-md-6">
+        <img src="{{mars.mars_hemisphere[1]['img_url']}}" alt="Mars Hemisphere2" class="img-fluid">
+        <h3 class="text-primary pt-4">{{mars.mars_hemisphere[1]['title']}}</h3>
+        <br>
+      </div>
+    </div>
+</body>
+
+</html>
